@@ -1,0 +1,10 @@
+.HorizontalMenu {
+  .active > a {
+    background: none;
+    color: $black;
+    font-weight: 600;
+  }
+  > li:first-child > a {
+    padding-left: 0;
+  }
+}
