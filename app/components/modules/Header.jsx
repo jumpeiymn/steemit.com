@@ -79,16 +79,27 @@ class Header extends React.Component {
         let topic_link = topic ? <Link to={`/${this.last_sort_order || 'trending'}/${topic}`}>{topic}</Link> : null;
 
         const sort_orders = {
-                promoted: 'promoted',
-                hot: 'hot',
-                trending: 'trending',
-                trending30: 'trending (30 day)',
-                cashout: 'payout time',
-                created: 'new',
-                active: 'active',
-                votes: 'popular' };
+            created: 'new',
+            hot: 'hot',
+            trending: 'trending',
+            promoted: 'promoted',
+            votes: 'popular'
+        };
         const sort_order_menu = Object.keys(sort_orders).filter(so => so !== sort_order).map(so => ({link: `/${so}/${topic}`, value: sort_orders[so]}));
-        const sort_order_menu_horizontal = Object.keys(sort_orders).map(so => ({link: `/${so}/${topic}`, value: sort_orders[so], active: so === sort_order}));
+        const sort_order_menu_horizontal = Object.keys(sort_orders).map(so => {
+            const active = (so === sort_order) || (so === 'trending' && sort_order === 'trending30')
+                return {link: `/${so}/${topic}`, value: sort_orders[so], active};
+            });
+
+        let sort_order_extra_menu = null;
+        console.log('-- Header.render -->', sort_order);
+        if (sort_order === 'trending' || sort_order === 'trending30') {
+            const items = [
+                {link: `/trending/${topic}`, value: 'trending (1 day)', active: sort_order === 'trending'},
+                {link: `/trending30/${topic}`, value: 'trending (30 day)', active: sort_order === 'trending30'}
+            ];
+            sort_order_extra_menu = <HorizontalMenu items={items} />
+        }
 
         return (
             <header className="Header">
@@ -121,10 +132,7 @@ class Header extends React.Component {
                         <HorizontalMenu items={sort_order_menu_horizontal} />
                     </div>
                     <div className="columns shrink">
-                        {/*<ul className="menu">
-                            <li><Link to="/market" activeClassName="active">Market</Link></li>
-                            <li><Link to="/users" activeClassName="active">Top Users</Link></li>
-                        </ul>*/}
+                        {sort_order_extra_menu}
                     </div>
                 </div>
             </header>
