@@ -117,7 +117,6 @@ class Header extends React.Component {
                                 {topic_link && <li className="Header__top-topic">{topic_link}</li>}
                                 {user_name && <li><Link to={`/@${user_name}`}>{user_name}</Link></li>}
                                 {page_name && <li><span>{page_name}</span></li>}
-                                {sort_order && <li className="delim show-for-medium">|</li>}
                                 {(topic_link || user_name || page_name) && sort_order && <li className="delim show-for-small-only">|</li>}
                                 {sort_order && <DropdownMenu className="Header__sort-order-menu show-for-small-only" items={sort_order_menu} selected={sort_orders[sort_order]} el="li" />}
                             </ul>
@@ -131,7 +130,7 @@ class Header extends React.Component {
                     <div className="columns">
                         <HorizontalMenu items={sort_order_menu_horizontal} />
                     </div>
-                    <div className="columns shrink">
+                    <div className="columns shrink show-for-large">
                         {sort_order_extra_menu}
                     </div>
                 </div>
