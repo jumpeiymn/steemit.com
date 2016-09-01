@@ -84,9 +84,9 @@ ul > li > .button {
   position: relative;
   padding: 0;
   background-color: $white;
+  border-bottom: 1px solid $light-gray;
   transition: all .3s;
   z-index: -1;
-  border-bottom: 1px solid $light-gray;
   li > a {
     color: $dark-gray;
     background-color: $white;
