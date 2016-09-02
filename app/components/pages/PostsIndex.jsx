@@ -58,10 +58,12 @@ class PostsIndex extends React.Component {
     }
     render() {
         let {category, order = constants.DEFAULT_SORT_ORDER} = this.props.routeParams;
+        let topics_order = order;
         let posts = [];
-        if (category === 'feed' || category === 'home'){
+        if (category === 'feed' || category === 'home') {
             const account_name = order.slice(1);
             order = 'by_feed';
+            topics_order = 'trending';
             posts = this.props.global.getIn(['accounts', account_name, 'feed']);
         } else {
             posts = this.getPosts(order, category);
@@ -75,13 +77,13 @@ class PostsIndex extends React.Component {
             <div className={'PostsIndex row' + (fetching ? ' fetching' : '')}>
                 <div className="PostsIndex__left column small-collapse">
                     <div className="PostsIndex__topics_compact show-for-small hide-for-large">
-                        <Topics order={order} current={category} compact />
+                        <Topics order={topics_order} current={category} compact />
                     </div>
                     <PostsList ref="list" posts={posts ? posts.toArray() : []} loading={fetching} category={category}
                         loadMore={this.loadMore} showSpam={showSpam} />
                 </div>
                 <div className="PostsIndex__topics column shrink show-for-large">
-                    <Topics order={order} current={category} compact={false} />
+                    <Topics order={topics_order} current={category} compact={false} />
                     <small><a onClick={this.onShowSpam}>{showSpam ? 'Show less' : 'Show more'}</a> low value posts</small>
                 </div>
             </div>
