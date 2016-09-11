@@ -5,14 +5,20 @@
       "browser": {
         "plugins": [["react-transform", {
           "transforms": [
-          {
-            "transform": "react-transform-catch-errors",
-            "imports": [
-              "react",
-              "redbox-react"
-            ]
+            {
+              "transform": "react-transform-catch-errors",
+              "imports": [
+                "react",
+                "redbox-react"
+              ]
+            }]
+          }],
+          ["react-intl", {
+            "messagesDir": "./app/languages/",
+            "enforceDescriptions": false, 
+            "extractSourceLocation": true
           }]
-        }]]
+        ]
       }
     }
 }
