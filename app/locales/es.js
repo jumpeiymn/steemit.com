@@ -92,7 +92,7 @@ const es = 	{
 	tag_your_story: 'Tag (up to 5 tags), the first tag is your main category.',
 	select_a_tag: 'Selecciona una etiqueta',
 	required: 'Requerido',
-	shorten_title: 'Acortar título!,
+	shorten_title: 'Acortar título!',
 	exceeds_maximum_length: 'Excede el máximo de ({maxKb}KB)',
 	including_the_category: "(incluyendo la categoria '{rootCategory}')",
 	use_limited_amount_of_tags: 'Tienes etiqueta {tagsLength} total{includingCategory}.  Por favor usa solo 5 en tu publicación y linea de categoría.',
