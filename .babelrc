@@ -14,9 +14,9 @@
             }]
           }],
           ["react-intl", {
-            "messagesDir": "./app/languages/",
-            "enforceDescriptions": false, 
-            "extractSourceLocation": true
+            "messagesDir": "./messages/",
+            "enforceDescriptions": true, 
+            "extractSourceLocation": false
           }]
         ]
       }
