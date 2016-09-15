@@ -392,7 +392,7 @@ const es = 	{
 	no_responses_yet_click_to_respond: 'Aún no hay respuestas. Click para responder',
 	click_to_respond: 'Click para responder',
 	new_password: 'Nuevo Password',
-	paste_a_youtube_or_vimeo_and_press_enter: 'Pegar un YouTube o Vimeo y presionar Enter',
+	paste_a_youtube_or_vimeo_and_press_enter: 'Pegar un enlace de YouTube o Vimeo y presionar Enter',
 	there_was_an_error_uploading_your_image: 'Hubo un error subiendo tu imagen',
 	raw_html: 'HTML crudo',
 	please_remove_following_html_elements: 'Por favor, remové los siguientes elementos HTML de tu post: ',
