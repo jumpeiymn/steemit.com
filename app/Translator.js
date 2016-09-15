@@ -19,7 +19,7 @@ import enLocaleData from 'react-intl/locale-data/en';
 import ruLocaleData from 'react-intl/locale-data/ru';
 import frLocaleData from 'react-intl/locale-data/fr';
 import esLocaleData from 'react-intl/locale-data/es';
-import esLocaleData from 'react-intl/locale-data/it';
+import itLocaleData from 'react-intl/locale-data/it';
 addLocaleData([...enLocaleData, ...ruLocaleData, ...frLocaleData, ...esLocaleData, ...itLocaleData]);
 
 // Our translated strings
@@ -27,7 +27,7 @@ import { en } from './locales/en';
 import { ru } from './locales/ru';
 import { fr } from './locales/fr';
 import { es } from './locales/es';
-import { es } from './locales/it';
+import { it } from './locales/it';
 const translations = {
 	en: en,
 	ru: ru,
