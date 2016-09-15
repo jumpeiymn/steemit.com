@@ -26,7 +26,12 @@ import { en } from './locales/en';
 import { ru } from './locales/ru';
 import { fr } from './locales/fr';
 import { es } from './locales/es';
-const messages = Object.assign(en, ru, fr, es)
+const translations = {
+	en: en,
+	es: es,
+	fr: fr,
+	ru: ru
+}
 
 // exported function placeholders
 // this is needed for proper export before react-intl functions with locale data,
@@ -97,18 +102,20 @@ class Translator extends React.Component {
 		// for these different by checking all of them
 		let language = 'en';
 		// while Server Side Rendering is in process, 'navigator' is undefined
-		if (process.env.BROWSER) language = navigator
-											? (navigator.languages && navigator.languages[0])
-					                        || navigator.language
-					                        || navigator.userLanguage
-											: '';
-        //Split locales with a region code (ie. 'en-EN' to 'en')
-        const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+		if (process.env.BROWSER) {
+			language = navigator ? (navigator.languages && navigator.languages[0])
+		                        || navigator.language
+		                        || navigator.userLanguage
+														: 'en';
+		}
+    //Split locales with a region code (ie. 'en-EN' to 'en')
+    const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
 
 		// TODO: don't forget to add Safari polyfill
 
 		// to ensure dynamic language change, "key" property with same "locale" info must be added
 		// see: https://github.com/yahoo/react-intl/wiki/Components#multiple-intl-contexts
+		let messages = translations[languageWithoutRegionCode]
 		return 	<IntlProvider locale={languageWithoutRegionCode} key={languageWithoutRegionCode} messages={messages}>
 					<div>
 						<DummyComponentToExportProps />
