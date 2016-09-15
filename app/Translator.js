@@ -106,10 +106,11 @@ class Translator extends React.Component {
 			language = navigator ? (navigator.languages && navigator.languages[0])
 		                        || navigator.language
 		                        || navigator.userLanguage
-														: 'en';
+								: 'en';
 		}
-    //Split locales with a region code (ie. 'en-EN' to 'en')
-    const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+
+	    //Split locales with a region code (ie. 'en-EN' to 'en')
+	    const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
 
 		// TODO: don't forget to add Safari polyfill
 
