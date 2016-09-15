@@ -1,4 +1,4 @@
-const en = 	{
+const it = 	{
 	// this variables mainly used in navigation section
 	about: "About",
 	explore: "Explore",
